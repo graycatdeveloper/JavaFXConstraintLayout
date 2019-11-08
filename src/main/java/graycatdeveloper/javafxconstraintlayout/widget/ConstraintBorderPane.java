@@ -24,6 +24,16 @@ public class ConstraintBorderPane extends BorderPane implements ConstraintLayout
         constraintWidth = new SimpleStringProperty(),
         constraintHeight = new SimpleStringProperty();
 
+    @Override
+    public void setConstraintWidth(@NamedArg("constraintWidth") String value) {
+        constraintWidth.set(value);
+    }
+
+    @Override
+    public void setConstraintHeight(@NamedArg("constraintHeight") String value) {
+        constraintHeight.set(value);
+    }
+
     /*@Override
     public void setConstraintBaseline_toBaselineOf(@NamedArg("constraintBaseline_toBaselineOf") String value) {
         constraintBaselineToBaseline.set(value);
@@ -90,16 +100,6 @@ public class ConstraintBorderPane extends BorderPane implements ConstraintLayout
     @Override
     public void setConstraintEnd_toEndOf(@NamedArg("constraintEnd_toEndOf") String value) {
         constraintEndToEnd.set(value);
-    }
-
-    @Override
-    public void setConstraintWidth(String value) {
-        constraintWidth.set(value);
-    }
-
-    @Override
-    public void setConstraintHeight(String value) {
-        constraintHeight.set(value);
     }
 
     /*@Override
