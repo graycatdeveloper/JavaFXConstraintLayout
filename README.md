@@ -17,14 +17,14 @@ How it works?
 | ```constraintHeight``` | ```String``` | ```50```px ```25%``` |
 | ```constraintPadding``` |```String``` | ```10``` or ```10 5 10 5``` |
 | ```constraintMargin``` | ```String``` | ```10``` or ```10 5 10 5``` |
-| ```constraintTop_toTopOf``` | ```String``` | ```parent``` of ```#paneId``` |
-| ```constraintEnd_toEndOf``` | ```String``` | ```parent``` of ```#paneId``` |
-| ```constraintBottom_toBottomOf``` | ```String``` | ```parent``` of ```#paneId``` |
-| ```constraintStart_toStartOf``` | ```String``` | ```parent``` of ```#paneId``` |
-| ```constraintTop_toBottomOf``` | ```String``` | ```parent``` of ```#paneId``` |
-| ```constraintBottom_toTopOf``` | ```String``` | ```parent``` of ```#paneId``` |
-| ```constraintStart_toEndOf``` | ```String``` | ```parent``` of ```#paneId``` |  |
-| ```constraintEnd_toStartOf``` | ```String``` | ```parent``` of ```#paneId``` |  |
+| ```constraintTop_toTopOf``` | ```String``` | ```parent``` or ```#paneId``` |
+| ```constraintEnd_toEndOf``` | ```String``` | ```parent``` or ```#paneId``` |
+| ```constraintBottom_toBottomOf``` | ```String``` | ```parent``` or ```#paneId``` |
+| ```constraintStart_toStartOf``` | ```String``` | ```parent``` or ```#paneId``` |
+| ```constraintTop_toBottomOf``` | ```String``` | ```parent``` or ```#paneId``` |
+| ```constraintBottom_toTopOf``` | ```String``` | ```parent``` or ```#paneId``` |
+| ```constraintStart_toEndOf``` | ```String``` | ```parent``` or ```#paneId``` |  |
+| ```constraintEnd_toStartOf``` | ```String``` | ```parent``` or ```#paneId``` |  |
 
 **FXML example**
 ```xml
