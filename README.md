@@ -11,20 +11,20 @@ How it works?
 
 **Params**
 
-| Param | Type | Description | Valid value example |
+| Param | Type | Valid value example | Description |
 | --- | --- | --- | --- |
-| ```constraintWidth``` | ```String``` |  | ```100```px ```50%``` |
-| ```constraintHeight``` | ```String``` |  | ```50```px ```25%``` |
-| ```constraintPadding``` |```String``` |  | ```10``` or ```10 5 10 5``` |
-| ```constraintMargin``` | ```String``` |  | ```10``` or ```10 5 10 5``` |
-| ```constraintTop_toTopOf``` | ```String``` |  | ```parent``` of ```#paneId``` |
-| ```constraintEnd_toEndOf``` | ```String``` |  | ```parent``` of ```#paneId``` |
-| ```constraintBottom_toBottomOf``` | ```String``` |  | ```parent``` of ```#paneId``` |
-| ```constraintStart_toStartOf``` | ```String``` |  | ```parent``` of ```#paneId``` |
-| ```constraintTop_toBottomOf``` | ```String``` |  | ```parent``` of ```#paneId``` |
-| ```constraintBottom_toTopOf``` | ```String``` |  | ```parent``` of ```#paneId``` |
-| ```constraintStart_toEndOf``` | ```String``` | Needs to be developed: stretching by percent of parent; | ```parent``` of ```#paneId``` |
-| ```constraintEnd_toStartOf``` | ```String``` | Needs to be developed: stretching by percent of parent; | ```parent``` of ```#paneId``` |
+| ```constraintWidth``` | ```String``` | ```100```px ```50%``` |
+| ```constraintHeight``` | ```String``` | ```50```px ```25%``` |
+| ```constraintPadding``` |```String``` | ```10``` or ```10 5 10 5``` |
+| ```constraintMargin``` | ```String``` | ```10``` or ```10 5 10 5``` |
+| ```constraintTop_toTopOf``` | ```String``` | ```parent``` of ```#paneId``` |
+| ```constraintEnd_toEndOf``` | ```String``` | ```parent``` of ```#paneId``` |
+| ```constraintBottom_toBottomOf``` | ```String``` | ```parent``` of ```#paneId``` |
+| ```constraintStart_toStartOf``` | ```String``` | ```parent``` of ```#paneId``` |
+| ```constraintTop_toBottomOf``` | ```String``` | ```parent``` of ```#paneId``` |
+| ```constraintBottom_toTopOf``` | ```String``` | ```parent``` of ```#paneId``` |
+| ```constraintStart_toEndOf``` | ```String``` | ```parent``` of ```#paneId``` |  |
+| ```constraintEnd_toStartOf``` | ```String``` | ```parent``` of ```#paneId``` |  |
 
 **FXML example**
 ```xml
