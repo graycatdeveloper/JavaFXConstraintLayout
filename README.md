@@ -12,7 +12,7 @@ How it works?
 **Params**
 
 | Param | Type | Description | Example |
-| --- | --- | --- |
+| --- | --- | --- | --- |
 | ```constraintWidth``` | ```String``` |  | ```100```px ```50%``` |
 | ```constraintHeight``` | ```String``` |  | ```50```px ```25%``` |
 | ```constraintPadding``` |```String``` |  | ```10``` or ```10 5 10 5``` |
