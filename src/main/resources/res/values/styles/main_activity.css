@@ -1,0 +1,14 @@
+* {
+    -fx-base: transparent;
+    -fx-background: -fx-base;
+    -fx-background-color: -fx-background;
+}
+
+.root {
+    -fx-background-image: url('../../drawable/background.jpg');
+    -fx-background-size: cover;
+}
+
+.background_shadow {
+    -fx-background-color: linear-gradient(#2B3841, #17232F88, #111820);
+}

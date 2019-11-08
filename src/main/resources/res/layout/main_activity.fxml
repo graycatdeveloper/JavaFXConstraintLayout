@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Text?>
+<?import javafx.stage.Screen?>
+<?import javafx.scene.image.Image?>
+<?import graycatdeveloper.javafxconstraintlayout.widget.ConstraintLayout?>
+<?import graycatdeveloper.javafxconstraintlayout.widget.ConstraintBorderPane?>
+
+<ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" pannable="true" vbarPolicy="NEVER" xmlns="http://javafx.com/javafx/8.0.231" xmlns:fx="http://javafx.com/fxml/1">
+
+   <fx:define>
+      <Screen fx:factory="getPrimary" fx:id="screen"/>
+   </fx:define>
+
+   <content>
+      <ConstraintLayout fx:id="mConstraintLayout" style="-fx-background-color: #ffffff11;">
+
+         <ConstraintBorderPane
+                 id="pane1"
+                 constraintWidth="50%"
+                 constraintTop_toTopOf="parent"
+                 constraintBottom_toBottomOf="#pane3"
+                 style="-fx-background-color: #ff00ff22;">
+            <center>
+               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Pane 1" BorderPane.alignment="CENTER"/>
+            </center>
+            <right>
+               <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                  <image>
+                     <Image url="@../drawable/ic_launcher.png"/>
+                  </image>
+               </ImageView>
+            </right>
+         </ConstraintBorderPane>
+
+         <ConstraintBorderPane
+                 id="pane2"
+                 constraintWidth="50%"
+                 constraintEnd_toEndOf="parent"
+                 style="-fx-background-color: #00ffcc22;">
+            <center>
+               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Pane 2" BorderPane.alignment="CENTER" />
+            </center>
+            <right>
+               <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                  <image>
+                     <Image url="@../drawable/ic_launcher.png" />
+                  </image>
+               </ImageView>
+            </right>
+         </ConstraintBorderPane>
+
+         <ConstraintBorderPane
+                 id="pane3"
+                 constraintStart_toStartOf="parent"
+                 constraintEnd_toStartOf="#pane2"
+                 constraintTop_toBottomOf="#pane2"
+                 style="-fx-background-color: rgba(255,162,0,0.42);">
+            <center>
+               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Pane 3" BorderPane.alignment="CENTER"/>
+            </center>
+            <right>
+               <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                  <image>
+                     <Image url="@../drawable/ic_launcher.png" />
+                  </image>
+               </ImageView>
+            </right>
+         </ConstraintBorderPane>
+
+         <ConstraintBorderPane
+                 id="pane4"
+                 constraintTop_toBottomOf="#pane3"
+                 constraintStart_toStartOf="parent"
+                 constraintEnd_toEndOf="parent"
+                 style="-fx-background-color: rgba(32,7,255,0.42);">
+            <center>
+               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Pane 4" BorderPane.alignment="CENTER"/>
+            </center>
+            <right>
+               <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                  <image>
+                     <Image url="@../drawable/ic_launcher.png" />
+                  </image>
+               </ImageView>
+            </right>
+         </ConstraintBorderPane>
+
+         <ConstraintBorderPane
+                 id="pane5"
+                 constraintWidth="33%"
+                 minHeight="100"
+                 constraintTop_toBottomOf="#pane4"
+                 constraintStart_toStartOf="parent"
+                 style="-fx-background-color: rgba(98,255,79,0.42);">
+            <center>
+               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Pane 5" BorderPane.alignment="CENTER"/>
+            </center>
+            <right>
+               <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                  <image>
+                     <Image url="@../drawable/ic_launcher.png" />
+                  </image>
+               </ImageView>
+            </right>
+         </ConstraintBorderPane>
+
+         <ConstraintBorderPane
+                 id="pane6"
+                 constraintWidth="20%"
+                 constraintTop_toTopOf="#pane5"
+                 constraintStart_toEndOf="#pane5"
+                 style="-fx-background-color: rgba(65,245,255,0.42);">
+            <center>
+               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Pane 6" BorderPane.alignment="CENTER"/>
+            </center>
+            <right>
+               <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                  <image>
+                     <Image url="@../drawable/ic_launcher.png" />
+                  </image>
+               </ImageView>
+            </right>
+         </ConstraintBorderPane>
+
+         <ConstraintBorderPane
+                 id="pane7"
+                 constraintWidth="33%"
+                 constraintTop_toTopOf="#pane5"
+                 constraintStart_toEndOf="#pane6"
+                 constraintEnd_toEndOf="parent"
+                 constraintBottom_toBottomOf="#pane5"
+                 style="-fx-background-color: rgba(252,250,0,0.42);">
+            <center>
+               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Pane 7" BorderPane.alignment="CENTER"/>
+            </center>
+            <right>
+               <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                  <image>
+                     <Image url="@../drawable/ic_launcher.png" />
+                  </image>
+               </ImageView>
+            </right>
+         </ConstraintBorderPane>
+
+      </ConstraintLayout>
+   </content>
+</ScrollPane>
