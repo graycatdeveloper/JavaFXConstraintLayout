@@ -42,19 +42,16 @@ public class ConstraintBorderPane extends BorderPane implements ConstraintLayout
     @Override
     public void setConstraintLeft_toLeftOf(@NamedArg("constraintLeft_toLeftOf") String value) {
         constraintLeftToLeft.set(value);
-
     }
 
     @Override
     public void setConstraintLeft_toRightOf(@NamedArg("constraintLeft_toRightOf") String value) {
         constraintLeftToRight.set(value);
-
     }
 
     @Override
     public void setConstraintRight_toLeftOf(@NamedArg("constraintRight_toLeftOf") String value) {
         constraintRightToLeft.set(value);
-
     }
 
     @Override
