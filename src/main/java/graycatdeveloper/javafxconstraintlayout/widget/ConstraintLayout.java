@@ -1,6 +1,7 @@
 package graycatdeveloper.javafxconstraintlayout.widget;
 
 import javafx.application.Platform;
+import javafx.beans.property.StringProperty;
 import javafx.geometry.Bounds;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -9,6 +10,61 @@ import java.util.HashMap;
 import java.util.List;
 
 public class ConstraintLayout extends AnchorPane {
+
+    public interface Impl {
+
+        //void setConstraintBaseline_toBaselineOf(String value);
+        //void setConstraintLeft_toLeftOf(String value);
+        //void setConstraintLeft_toRightOf(String value);
+        //void setConstraintRight_toLeftOf(String value);
+        //void setConstraintRight_toRightOf(String value);
+        void setConstraintTop_toTopOf(String value);
+        void setConstraintTop_toBottomOf(String value);
+        void setConstraintBottom_toTopOf(String value);
+        void setConstraintBottom_toBottomOf(String value);
+        void setConstraintStart_toEndOf(String value);
+        void setConstraintStart_toStartOf(String value);
+        void setConstraintEnd_toStartOf(String value);
+        void setConstraintEnd_toEndOf(String value);
+
+        void setConstraintWidth(String value);
+        void setConstraintHeight(String value);
+
+        //String getConstraintBaseline_toBaselineOf();
+        //String getConstraintLeft_toLeftOf();
+        //String getConstraintLeft_toRightOf();
+        //String getConstraintRight_toLeftOf();
+        //String getConstraintRight_toRightOf();
+        String getConstraintTop_toTopOf();
+        String getConstraintTop_toBottomOf();
+        String getConstraintBottom_toTopOf();
+        String getConstraintBottom_toBottomOf();
+        String getConstraintStart_toEndOf();
+        String getConstraintStart_toStartOf();
+        String getConstraintEnd_toStartOf();
+        String getConstraintEnd_toEndOf();
+
+        String getConstraintWidth();
+        String getConstraintHeight();
+
+        //StringProperty constraintBaselineToBaselineOfProperty();
+        //StringProperty constraintLeftToLeftOfProperty();
+        //StringProperty constraintLeftToRightOfProperty();
+        //StringProperty constraintRightToLeftOfProperty();
+        //StringProperty constraintRightToRightOfProperty();
+        StringProperty constraintTopToTopOfProperty();
+        StringProperty constraintTopToBottomOfProperty();
+        StringProperty constraintBottomToTopOfProperty();
+        StringProperty constraintBottomToBottomOfProperty();
+        StringProperty constraintStartToEndOfProperty();
+        StringProperty constraintStartToStartOfProperty();
+        StringProperty constraintEndToStartOfProperty();
+        StringProperty constraintEndToEndOfProperty();
+
+        StringProperty constraintWidthProperty();
+        StringProperty constraintHeightProperty();
+
+    }
 
     private double oldChildSizeSum, newChildSizeSum;
 
@@ -27,7 +83,7 @@ public class ConstraintLayout extends AnchorPane {
         for (int index = 0; index < children.size(); index++) {
             Pane child = children.get(index);
 
-            ConstraintLayoutImpl impl = (ConstraintLayoutImpl) child;
+            Impl impl = (Impl) child;
 
             if (impl.getConstraintWidth() != null && !impl.getConstraintWidth().equals("0")) {
                 final double width = getWidth() * parseSize(impl.getConstraintWidth());

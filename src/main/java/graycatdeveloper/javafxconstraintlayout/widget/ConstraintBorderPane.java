@@ -5,7 +5,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.scene.layout.BorderPane;
 
-public class ConstraintBorderPane extends BorderPane implements ConstraintLayoutImpl {
+public class ConstraintBorderPane extends BorderPane implements ConstraintLayout.Impl {
 
     private final StringProperty
         //constraintBaselineToBaseline = new SimpleStringProperty(),
