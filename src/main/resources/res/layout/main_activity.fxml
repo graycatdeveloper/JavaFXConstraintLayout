@@ -50,6 +50,7 @@
 
       <ConstraintBorderPane
               id="pane3"
+              constraintMargin="20"
               constraintStart_toStartOf="parent"
               constraintEnd_toStartOf="#pane2"
               constraintTop_toBottomOf="#pane2"
@@ -84,6 +85,8 @@
               id="pane5"
               constraintWidth="33%"
               minHeight="100"
+              constraintMargin="10"
+              constraintPadding="10"
               constraintTop_toBottomOf="#pane4"
               constraintStart_toStartOf="parent"
               style="-fx-background-color: rgba(98,255,79,0.42);">
@@ -116,6 +119,7 @@
       <ConstraintBorderPane
               id="pane7"
               constraintWidth="33%"
+              constraintMargin="0 10 0 10"
               constraintTop_toTopOf="#pane5"
               constraintStart_toEndOf="#pane6"
               constraintEnd_toEndOf="parent"

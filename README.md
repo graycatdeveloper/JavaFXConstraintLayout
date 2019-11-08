@@ -11,20 +11,20 @@ How it works?
 
 **Params**
 
-| Param | Description |
-| --- | --- |
-| ```constraintWidth``` | Support percent by parent(```constraintWidth="50%"```) |
-| ```constraintHeight``` | Support percent by parent(```constraintHeight="25%"```) |
-| ```constraintPadding``` |  |
-| ```constraintMargin``` |  |
-| ```constraintTop_toTopOf``` |  |
-| ```constraintEnd_toEndOf``` |  |
-| ```constraintBottom_toBottomOf``` |  |
-| ```constraintStart_toStartOf``` |  |
-| ```constraintTop_toBottomOf``` |  |
-| ```constraintBottom_toTopOf``` |  |
-| ```constraintStart_toEndOf``` | Needs to be developed: stretching by percent of parent; |
-| ```constraintEnd_toStartOf``` | Needs to be developed: stretching by percent of parent; |
+| Param | Type | Valid value example | Description |
+| --- | --- | --- | --- |
+| ```constraintWidth``` | ```String``` | ```100```px ```50%``` |
+| ```constraintHeight``` | ```String``` | ```50```px ```25%``` |
+| ```constraintPadding``` |```String``` | ```10``` or ```10 5 10 5``` |
+| ```constraintMargin``` | ```String``` | ```10``` or ```10 5 10 5``` |
+| ```constraintTop_toTopOf``` | ```String``` | ```parent``` or ```#paneId``` |
+| ```constraintEnd_toEndOf``` | ```String``` | ```parent``` or ```#paneId``` |
+| ```constraintBottom_toBottomOf``` | ```String``` | ```parent``` or ```#paneId``` |
+| ```constraintStart_toStartOf``` | ```String``` | ```parent``` or ```#paneId``` |
+| ```constraintTop_toBottomOf``` | ```String``` | ```parent``` or ```#paneId``` |
+| ```constraintBottom_toTopOf``` | ```String``` | ```parent``` or ```#paneId``` |
+| ```constraintStart_toEndOf``` | ```String``` | ```parent``` or ```#paneId``` |  |
+| ```constraintEnd_toStartOf``` | ```String``` | ```parent``` or ```#paneId``` |  |
 
 **FXML example**
 ```xml

@@ -6,6 +6,7 @@ import javafx.geometry.Bounds;
 import javafx.geometry.Insets;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 import java.util.List;
@@ -88,37 +89,26 @@ public class ConstraintLayout extends AnchorPane {
 
             Impl impl = (Impl) child;
 
-            if (impl.getConstraintWidth() != null && !impl.getConstraintWidth().equals("0")) {
-                final double width = getWidth() * parseSize(impl.getConstraintWidth());
+            Margin margin = getMargins(impl);
+
+            if (impl.getConstraintWidth() != null) {
+                final double width = getWidth() * parseSize(impl.getConstraintWidth()) - margin.start - margin.end;
                 child.setPrefWidth(width);
                 //child.setMinWidth(width);
                 //child.setMaxWidth(width);
             }
 
-            if (impl.getConstraintHeight() != null && !impl.getConstraintHeight().equals("0")) {
-                final double height = getHeight() * parseSize(impl.getConstraintHeight());
-                child.setPrefWidth(height);
+            if (impl.getConstraintHeight() != null) {
+                final double height = getHeight() * parseSize(impl.getConstraintHeight()) - margin.top - margin.bottom;
+                child.setPrefHeight(height);
                 //child.setMinWidth(height);
                 //child.setMaxWidth(height);
             }
 
             if (impl.getConstraintPadding() != null) {
                 String[] values = impl.getConstraintPadding().split(" ");
-                //child.setPadding(values.length == 1 ? new Insets(Double.valueOf(values[0])) :
-                //new Insets(Double.valueOf(values[0]), Double.valueOf(values[1]), Double.valueOf(values[2]), Double.valueOf(values[3])));
-            }
-
-            Margin margin = new Margin();
-            if (impl.getConstraintMargin() != null) {
-                String[] values = impl.getConstraintMargin().split(" ");
-                if (values.length == 1) {
-                    margin.top = margin.end = margin.bottom = margin.start = Double.valueOf(values[0]);
-                } else {
-                    margin.top = Double.valueOf(values[0]);
-                    margin.end = Double.valueOf(values[1]);
-                    margin.bottom = Double.valueOf(values[2]);
-                    margin.start = Double.valueOf(values[3]);
-                }
+                child.setPadding(values.length == 1 ? new Insets(Double.valueOf(values[0])) :
+                        new Insets(Double.valueOf(values[0]), Double.valueOf(values[1]), Double.valueOf(values[2]), Double.valueOf(values[3])));
             }
 
             /*if (impl.getConstraintBaseline_toBaselineOf() != null) {}
@@ -127,63 +117,67 @@ public class ConstraintLayout extends AnchorPane {
             if (impl.getConstraintRight_toLeftOf() != null) {}
             if (impl.getConstraintRight_toRightOf() != null) {}*/
 
-            constraintOf(map, impl.getConstraintTop_toTopOf(), new Constraint() {
+            constraint(map, impl.getConstraintTop_toTopOf(), new Constraint() {
                 @Override public void pane(Pane pane) {
-                    setTopAnchor(child, pane.getBoundsInParent().getMinY());
+                    setTopAnchor(child, pane.getBoundsInParent().getMinY() + margin.top);
                 }
                 @Override public void parent() {
-                    setTopAnchor(child, 0.);
+                    setTopAnchor(child, 0. + margin.top);
                 }
             });
 
-            constraintOf(map, impl.getConstraintTop_toBottomOf(), new Constraint() {
+            constraint(map, impl.getConstraintTop_toBottomOf(), new Constraint() {
                 @Override public void pane(Pane pane) {
-                    setTopAnchor(child, pane.getBoundsInParent().getMaxY());
+                    Margin pane_margin = getMargins((Impl) pane);
+                    setTopAnchor(child, pane.getBoundsInParent().getMaxY() + margin.top + pane_margin.bottom);
                 }
                 @Override public void parent() {
-                    setTopAnchor(child, 0.);
+                    setTopAnchor(child, 0. + margin.top);
                 }
             });
 
-            constraintOf(map, impl.getConstraintBottom_toTopOf(), new Constraint() {
+            constraint(map, impl.getConstraintBottom_toTopOf(), new Constraint() {
                 @Override public void pane(Pane pane) {
-                    setBottomAnchor(child, getHeight() - pane.getBoundsInParent().getMinY());
+                    setBottomAnchor(child, getHeight() - pane.getBoundsInParent().getMinY() + margin.bottom);
                 }
                 @Override public void parent() {
-                    setTopAnchor(child, 0.);
+                    setTopAnchor(child, 0. + margin.top);
                 }
             });
 
-            constraintOf(map, impl.getConstraintBottom_toBottomOf(), new Constraint() {
+            constraint(map, impl.getConstraintBottom_toBottomOf(), new Constraint() {
                 @Override public void pane(Pane pane) {
-                    setBottomAnchor(child, getHeight() - pane.getBoundsInParent().getMaxY());
+                    setBottomAnchor(child, getHeight() - pane.getBoundsInParent().getMaxY() + margin.bottom);
                 }
                 @Override public void parent() {
-                    setBottomAnchor(child, 0.);
+                    setBottomAnchor(child, 0. + margin.bottom);
                 }
             });
 
-            constraintOf(map, impl.getConstraintStart_toEndOf(), new Constraint() {
+            constraint(map, impl.getConstraintStart_toEndOf(), new Constraint() {
                 @Override public void pane(Pane pane) {
-                    Double value = getLeftAnchor(pane) != null ? getLeftAnchor(pane) + pane.getWidth() : pane.getBoundsInParent().getMaxX();
+                    Margin pane_margin = getMargins((Impl) pane);
+                    System.out.println("Start_toEndOf: " + pane + " > margin.end: " + margin.end);
+                    Double value = /*getLeftAnchor(pane) != null ? getLeftAnchor(pane) + pane.getWidth() : */
+                            pane.getBoundsInParent().getMaxX();
                     //System.out.println("Start_toEndOf: " + value);
-                    setLeftAnchor(child, value);
+                    setLeftAnchor(child, value + margin.start + pane_margin.end);
                 }
                 @Override public void parent() {
-                    setRightAnchor(child, 0.);
+                    setRightAnchor(child, 0. + margin.end);
                 }
             });
 
-            constraintOf(map, impl.getConstraintStart_toStartOf(), new Constraint() {
+            constraint(map, impl.getConstraintStart_toStartOf(), new Constraint() {
                 @Override public void pane(Pane pane) {
-                    setLeftAnchor(child, pane.getBoundsInParent().getMinX());
+                    setLeftAnchor(child, pane.getBoundsInParent().getMinX() + margin.start);
                 }
                 @Override public void parent() {
-                    setLeftAnchor(child, 0.);
+                    setLeftAnchor(child, 0. + margin.start);
                 }
             });
 
-            constraintOf(map, impl.getConstraintEnd_toStartOf(), new Constraint() {
+            constraint(map, impl.getConstraintEnd_toStartOf(), new Constraint() {
                 @Override public void pane(Pane pane) {
                     //System.out.println("pane.LeftAnchor[" + getLeftAnchor(pane) + "] == child.MaxX[" + child.getBoundsInParent().getMaxX());
                     //if (getLeftAnchor(pane) != null && getLeftAnchor(pane) == child.getBoundsInParent().getMaxX()) {
@@ -193,28 +187,23 @@ public class ConstraintLayout extends AnchorPane {
                     //} else {
                     Double value = getWidth() - pane.getBoundsInParent().getMinX();
                     System.out.println("End_toStartOf: " + value);
-                    setRightAnchor(child, value);
+                    setRightAnchor(child, value + margin.end);
                     //child.setPrefWidth(value);
                     //}
                 }
                 @Override public void parent() {
-                    setLeftAnchor(child, 0.);
+                    setLeftAnchor(child, 0. + margin.start);
                 }
             });
 
-            constraintOf(map, impl.getConstraintEnd_toEndOf(), new Constraint() {
+            constraint(map, impl.getConstraintEnd_toEndOf(), new Constraint() {
                 @Override public void pane(Pane pane) {
-                    setRightAnchor(child, pane.getBoundsInParent().getMinX());
+                    setRightAnchor(child, pane.getBoundsInParent().getMinX() + margin.end);
                 }
                 @Override public void parent() {
-                    setRightAnchor(child, 0.);
+                    setRightAnchor(child, 0. + margin.end);
                 }
             });
-
-            //setTopAnchor(child, (getTopAnchor(child) != null ? getTopAnchor(child) : child.getBoundsInParent().getMinY()) + margin.top);
-            //setRightAnchor(child, (getRightAnchor(child) != null ? getRightAnchor(child) : child.getBoundsInParent().getMaxX()) + margin.end);
-            //setBottomAnchor(child, (getBottomAnchor(child) != null ? getBottomAnchor(child) : child.getBoundsInParent().getMaxY()) + margin.bottom);
-            //setLeftAnchor(child, (getLeftAnchor(child) != null ? getLeftAnchor(child) : child.getBoundsInParent().getMaxY()) + margin.start);
         }
 
         super.layoutChildren();
@@ -226,8 +215,28 @@ public class ConstraintLayout extends AnchorPane {
         }
     }
 
-    private double parseSize(String value) {
+    private double parseSize(@NotNull String value) {
         return Double.valueOf(value.contains("%") ? "0." + value.replace("%","") : value);
+    }
+
+    private final class Margin {
+        private double top, end, bottom, start;
+    }
+
+    private Margin getMargins(@NotNull Impl impl) {
+        Margin margin = new Margin();
+        if (impl.getConstraintMargin() != null) {
+            String[] values = impl.getConstraintMargin().split(" ");
+            if (values.length == 1) {
+                margin.top = margin.end = margin.bottom = margin.start = Double.valueOf(values[0]);
+            } else {
+                margin.top = Double.valueOf(values[0]);
+                margin.end = Double.valueOf(values[1]);
+                margin.bottom = Double.valueOf(values[2]);
+                margin.start = Double.valueOf(values[3]);
+            }
+        }
+        return margin;
     }
 
     private interface Constraint {
@@ -235,11 +244,7 @@ public class ConstraintLayout extends AnchorPane {
         void parent();
     }
 
-    private final class Margin {
-        private double top, end, bottom, start;
-    }
-
-    private void constraintOf(HashMap<String, Pane> map, String value, Constraint constraint) {
+    private void constraint(HashMap<String, Pane> map, String value, Constraint constraint) {
         if (value == null) return;
         if (value.startsWith("#")) {
             constraint.pane(map.get(value));
@@ -248,4 +253,5 @@ public class ConstraintLayout extends AnchorPane {
             constraint.parent();
         }
     }
+
 }
