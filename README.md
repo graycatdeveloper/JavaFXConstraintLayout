@@ -11,7 +11,7 @@ How it works?
 
 **Params**
 
-| Param | Type | Description | Example |
+| Param | Type | Description | Valid value example |
 | --- | --- | --- | --- |
 | ```constraintWidth``` | ```String``` |  | ```100```px ```50%``` |
 | ```constraintHeight``` | ```String``` |  | ```50```px ```25%``` |
