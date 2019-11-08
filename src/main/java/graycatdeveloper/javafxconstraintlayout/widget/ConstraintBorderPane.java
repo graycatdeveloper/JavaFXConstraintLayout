@@ -8,21 +8,23 @@ import javafx.scene.layout.BorderPane;
 public class ConstraintBorderPane extends BorderPane implements ConstraintLayout.Impl {
 
     private final StringProperty
-        //constraintBaselineToBaseline = new SimpleStringProperty(),
-        //constraintLeftToLeft = new SimpleStringProperty(),
-        //constraintLeftToRight = new SimpleStringProperty(),
-        //constraintRightToLeft = new SimpleStringProperty(),
-        //constraintRightToRight = new SimpleStringProperty(),
-        constraintTopToTop = new SimpleStringProperty(),
-        constraintTopToBottom = new SimpleStringProperty(),
-        constraintBottomToTop = new SimpleStringProperty(),
-        constraintBottomToBottom = new SimpleStringProperty(),
-        constraintStartToEnd = new SimpleStringProperty(),
-        constraintStartToStart = new SimpleStringProperty(),
-        constraintEndToStart = new SimpleStringProperty(),
-        constraintEndToEnd = new SimpleStringProperty(),
-        constraintWidth = new SimpleStringProperty(),
-        constraintHeight = new SimpleStringProperty();
+            constraintWidth = new SimpleStringProperty(),
+            constraintHeight = new SimpleStringProperty(),
+            constraintPadding = new SimpleStringProperty(),
+            constraintMargin = new SimpleStringProperty(),
+            //constraintBaselineToBaseline = new SimpleStringProperty(),
+            //constraintLeftToLeft = new SimpleStringProperty(),
+            //constraintLeftToRight = new SimpleStringProperty(),
+            //constraintRightToLeft = new SimpleStringProperty(),
+            //constraintRightToRight = new SimpleStringProperty(),
+            constraintTopToTop = new SimpleStringProperty(),
+            constraintTopToBottom = new SimpleStringProperty(),
+            constraintBottomToTop = new SimpleStringProperty(),
+            constraintBottomToBottom = new SimpleStringProperty(),
+            constraintStartToEnd = new SimpleStringProperty(),
+            constraintStartToStart = new SimpleStringProperty(),
+            constraintEndToStart = new SimpleStringProperty(),
+            constraintEndToEnd = new SimpleStringProperty();
 
     @Override
     public void setConstraintWidth(@NamedArg("constraintWidth") String value) {
@@ -32,6 +34,16 @@ public class ConstraintBorderPane extends BorderPane implements ConstraintLayout
     @Override
     public void setConstraintHeight(@NamedArg("constraintHeight") String value) {
         constraintHeight.set(value);
+    }
+
+    @Override
+    public void setConstraintPadding(@NamedArg("constraintPadding") String value) {
+        constraintPadding.set(value);
+    }
+
+    @Override
+    public void setConstraintMargin(@NamedArg("constraintMargin") String value) {
+        constraintMargin.set(value);
     }
 
     /*@Override
@@ -125,6 +137,26 @@ public class ConstraintBorderPane extends BorderPane implements ConstraintLayout
     }*/
 
     @Override
+    public String getConstraintWidth() {
+        return constraintWidth.get();
+    }
+
+    @Override
+    public String getConstraintHeight() {
+        return constraintHeight.get();
+    }
+
+    @Override
+    public String getConstraintPadding() {
+        return constraintPadding.get();
+    }
+
+    @Override
+    public String getConstraintMargin() {
+        return constraintMargin.get();
+    }
+
+    @Override
     public String getConstraintTop_toTopOf() {
         return constraintTopToTop.get();
     }
@@ -164,16 +196,6 @@ public class ConstraintBorderPane extends BorderPane implements ConstraintLayout
         return constraintEndToEnd.get();
     }
 
-    @Override
-    public String getConstraintWidth() {
-        return constraintWidth.get();
-    }
-
-    @Override
-    public String getConstraintHeight() {
-        return constraintHeight.get();
-    }
-
     /*@Override
     public StringProperty constraintBaselineToBaselineOfProperty() {
         return constraintBaselineToBaseline;
@@ -198,6 +220,25 @@ public class ConstraintBorderPane extends BorderPane implements ConstraintLayout
     public StringProperty constraintRightToRightOfProperty() {
         return constraintRightToRight;
     }*/
+
+    @Override
+    public StringProperty constraintWidthProperty() {
+        return constraintWidth;
+    }
+
+    @Override
+    public StringProperty constraintHeightProperty() {
+        return constraintHeight;
+    }
+
+    public StringProperty constraintPaddingProperty() {
+        return constraintPadding;
+    }
+
+    @Override
+    public StringProperty constraintMarginProperty() {
+        return constraintMargin;
+    }
 
     @Override
     public StringProperty constraintTopToTopOfProperty() {
@@ -237,16 +278,6 @@ public class ConstraintBorderPane extends BorderPane implements ConstraintLayout
     @Override
     public StringProperty constraintEndToEndOfProperty() {
         return constraintEndToEnd;
-    }
-
-    @Override
-    public StringProperty constraintWidthProperty() {
-        return constraintWidth;
-    }
-
-    @Override
-    public StringProperty constraintHeightProperty() {
-        return constraintHeight;
     }
 
 }

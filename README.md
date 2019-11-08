@@ -15,6 +15,8 @@ How it works?
 | --- | --- |
 | ```constraintWidth``` | Support percent by parent(```constraintWidth="50%"```) |
 | ```constraintHeight``` | Support percent by parent(```constraintHeight="25%"```) |
+| ```constraintPadding``` |  |
+| ```constraintMargin``` |  |
 | ```constraintTop_toTopOf``` |  |
 | ```constraintEnd_toEndOf``` |  |
 | ```constraintBottom_toBottomOf``` |  |
