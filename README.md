@@ -11,7 +11,7 @@ How it works?
 
 **Params**
 
-| Command | Description |
+| Param | Description |
 | --- | --- |
 | ```constraintWidth``` | Support percent by parent(```constraintWidth="50%"```) |
 | ```constraintHeight``` | Support percent by parent(```constraintHeight="25%"```) |
