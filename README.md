@@ -1,4 +1,4 @@
-# JavaFXConstraintLayout
+# JavaFX ConstraintLayout
 JavaFX ConstraintLayout (Like Android ConstraintLayout)
 
-![Preview](preview.jpg)
+![Preview](preview.png)
