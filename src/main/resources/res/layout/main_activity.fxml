@@ -19,7 +19,7 @@
 
       <ConstraintBorderPane
               id="pane1"
-              constraintWidth="50%"
+              constraintWidth="51%"
               constraintTop_toTopOf="parent"
               constraintBottom_toBottomOf="#pane3"
               style="-fx-background-color: #ff00ff22;">
