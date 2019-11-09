@@ -1,5 +1,5 @@
 # JavaFX ConstraintLayout
-JavaFX ConstraintLayout (Like Android ConstraintLayout)
+JavaFX Constraint Layout (Like Android ConstraintLayout)
 
 How it works?
 --------
